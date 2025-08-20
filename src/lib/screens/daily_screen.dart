@@ -6,6 +6,7 @@ import '../models.dart';
 import '../settings.dart';
 
 class DailyScreen extends StatefulWidget { const DailyScreen({super.key}); @override State<DailyScreen> createState()=>_DailyScreenState(); }
+AppLang _lang = AppLang.en;
 class _DailyScreenState extends State<DailyScreen> {
   bool _loading = true;
   List<Question> _qs = [];
@@ -20,7 +21,7 @@ class _DailyScreenState extends State<DailyScreen> {
 
   @override void initState(){ super.initState(); _load(); }
 
-  Future<void> _load() async {
+  Future<void> _load(_lang = lang;) async {
     setState(()=>_loading=true);
     try {
       final (storedDate, storedCount) = await AppSettings.getDaily();
@@ -61,11 +62,15 @@ class _DailyScreenState extends State<DailyScreen> {
     return Padding(padding: const EdgeInsets.all(16), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children:[
       Text(q.topic, style: Theme.of(context).textTheme.labelLarge),
       const SizedBox(height:8),
-      Text(q.text, style: Theme.of(context).textTheme.titleMedium, textDirection: TextDirection.auto),
+      Text(q.text,
+    style: Theme.of(context).textTheme.titleMedium,
+    textDirection: _lang.dir
       const SizedBox(height:12),
       ...q.choices.map((c)=>Card(child: ListTile(title: Text('${c.id}. ${c.text}', textDirection: TextDirection.auto), onTap: ()=>_answer(c.isCorrect)))),
       const Spacer(),
-      Text('Ref: ${q.ref}', style: Theme.of(context).textTheme.bodySmall, textDirection: TextDirection.auto),
+      Text(q.text,
+    style: Theme.of(context).textTheme.titleMedium,
+    textDirection: _lang.dir
       if(q.explanation!=null)...[const SizedBox(height:8), Text('Note: ${q.explanation!}', style: Theme.of(context).textTheme.bodySmall, textDirection: TextDirection.auto)],
     ]));
   }
