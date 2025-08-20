@@ -1,4 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/widgets.dart'; // add at top
+
+extension LangDir on AppLang {
+  TextDirection get dir => this == AppLang.ar ? TextDirection.rtl : TextDirection.ltr;
+}
 
 enum AppLang { en, ar }
 
