@@ -1,0 +1,15 @@
+[
+  {
+    "id": "p1",
+    "text": "Why are plumbing traps vented?",
+    "choices": [
+      {"id":"A","text":"To increase water pressure","isCorrect":false},
+      {"id":"B","text":"To prevent siphonage and protect trap seal","isCorrect":true},
+      {"id":"C","text":"To cool wastewater","isCorrect":false},
+      {"id":"D","text":"To filter odors with charcoal","isCorrect":false}
+    ],
+    "topic": "Plumbing — Venting",
+    "ref": "Practice",
+    "explanation": "Venting prevents trap seal loss and odors."
+  }
+]
