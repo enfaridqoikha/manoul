@@ -21,7 +21,8 @@ class _DailyScreenState extends State<DailyScreen> {
 
   @override void initState(){ super.initState(); _load(); }
 
-  Future<void> _load(_lang = lang;) async {
+  Future<void> _load() async {
+    _lang = lang;
     setState(()=>_loading=true);
     try {
       final (storedDate, storedCount) = await AppSettings.getDaily();
@@ -66,12 +67,12 @@ class _DailyScreenState extends State<DailyScreen> {
     style: Theme.of(context).textTheme.titleMedium,
     textDirection: _lang.dir
       const SizedBox(height:12),
-      ...q.choices.map((c)=>Card(child: ListTile(title: Text('${c.id}. ${c.text}', textDirection: TextDirection.auto), onTap: ()=>_answer(c.isCorrect)))),
+      ...q.choices.map((c)=>Card(child: ListTile(title: Text('${c.id}. ${c.text}', textDirection:_lang.dir), onTap: ()=>_answer(c.isCorrect)))),
       const Spacer(),
       Text(q.text,
     style: Theme.of(context).textTheme.titleMedium,
     textDirection: _lang.dir
-      if(q.explanation!=null)...[const SizedBox(height:8), Text('Note: ${q.explanation!}', style: Theme.of(context).textTheme.bodySmall, textDirection: TextDirection.auto)],
+      if(q.explanation!=null)...[const SizedBox(height:8), Text('Note: ${q.explanation!}', style: Theme.of(context).textTheme.bodySmall, textDirection: _lang.dir)],
     ]));
   }
 }
