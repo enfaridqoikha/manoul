@@ -1,0 +1,15 @@
+[
+  {
+    "id": "g1",
+    "text": "أي جهة مسؤولة عادة عن موافقات ربط الكهرباء في دبي؟",
+    "choices": [
+      {"id":"A","text":"هيئة الطرق والمواصلات RTA","isCorrect":false},
+      {"id":"B","text":"هيئة كهرباء ومياه دبي DEWA","isCorrect":true},
+      {"id":"C","text":"الشرطة","isCorrect":false},
+      {"id":"D","text":"طرق البلدية","isCorrect":false}
+    ],
+    "topic": "عام — جهات",
+    "ref": "تمرين",
+    "explanation": "DEWA مسؤولة عن موافقات الكهرباء والمياه."
+  }
+]
