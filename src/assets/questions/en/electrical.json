@@ -1,0 +1,15 @@
+[
+  {
+    "id": "e1",
+    "text": "Which device trips on residual current to protect against electric shock?",
+    "choices": [
+      {"id":"A","text":"MCB","isCorrect":false},
+      {"id":"B","text":"RCCB/RCBO","isCorrect":true},
+      {"id":"C","text":"MCCB","isCorrect":false},
+      {"id":"D","text":"Isolator","isCorrect":false}
+    ],
+    "topic": "Electrical — Protection",
+    "ref": "Practice",
+    "explanation": "RCD-type devices detect leakage current."
+  }
+]
