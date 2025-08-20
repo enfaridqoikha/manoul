@@ -1,0 +1,15 @@
+[
+  {
+    "id": "h1",
+    "text": "Minimum outside air is primarily determined by what factor in ventilation design?",
+    "choices": [
+      {"id":"A","text":"Floor finish","isCorrect":false},
+      {"id":"B","text":"Occupancy type and density","isCorrect":true},
+      {"id":"C","text":"Building height","isCorrect":false},
+      {"id":"D","text":"Paint color","isCorrect":false}
+    ],
+    "topic": "Mechanical — Ventilation",
+    "ref": "Practice",
+    "explanation": "Ventilation rates are set by occupancy classification and density."
+  }
+]
