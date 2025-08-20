@@ -1,0 +1,15 @@
+[
+  {
+    "id": "e1",
+    "text": "أي جهاز يفصل عند تيار التسرب للحماية من الصدمة الكهربائية؟",
+    "choices": [
+      {"id":"A","text":"MCB قاطع حراري مغناطيسي","isCorrect":false},
+      {"id":"B","text":"RCCB/RCBO قاطع تسرب تيار","isCorrect":true},
+      {"id":"C","text":"MCCB قاطع قدرة مصبوب","isCorrect":false},
+      {"id":"D","text":"قاطع عزل","isCorrect":false}
+    ],
+    "topic": "كهرباء — حماية",
+    "ref": "تمرين",
+    "explanation": "أجهزة التسرب (RCD) تكشف تيار التسرب وتفصل الدائرة."
+  }
+]
