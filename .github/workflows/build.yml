@@ -1,0 +1,42 @@
+name: Build Flutter APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: flutter-actions/setup-flutter@v2
+        with:
+          channel: stable
+
+      - name: Create fresh Flutter project
+        run: |
+          flutter create . --platforms=android --org com.mep.dubai --project-name mep_dubai_ai
+
+      - name: Overlay source and assets
+        run: |
+          rm -f pubspec.yaml
+          mv pubspec.yaml.template pubspec.yaml
+          mkdir -p lib assets/questions/en assets/questions/ar assets/excerpts
+          cp -r src/lib/* lib/
+          cp -r src/assets/* assets/
+
+      - name: Pub get
+        run: flutter pub get
+
+      - name: Build APK (release)
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: mep-dubai-ai.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
