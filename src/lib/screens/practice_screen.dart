@@ -7,6 +7,7 @@ import '../settings.dart';
 
 class PracticeScreen extends StatefulWidget { const PracticeScreen({super.key}); @override State<PracticeScreen> createState()=>_PracticeScreenState(); }
 class _PracticeScreenState extends State<PracticeScreen> {
+  AppLang _lang = AppLang.en;
   bool _loading = true;
   List<Question> _qs = [];
   int _i = 0; int _score = 0;
@@ -15,8 +16,14 @@ class _PracticeScreenState extends State<PracticeScreen> {
 
   @override void initState(){ super.initState(); _load(); }
 
-  Future<void> _load() async {
+   Future<void> _load() async {
+  final lang = await AppSettings.getLang();
+  final qs = await QuestionService.loadPractice(lang);
+  setState(() {
     _lang = lang;
+    _questions = qs;
+    });
+}
     setState(()=>_loading=true);
     try {
       final lang = await AppSettings.getLang();
