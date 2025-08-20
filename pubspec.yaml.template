@@ -1,0 +1,25 @@
+name: mep_dubai_ai
+description: MEP Dubai (DBC/DEWA-style) — AI Daily + Practice with AR/EN toggle
+publish_to: "none"
+version: 1.5.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.2
+  shared_preferences: ^2.2.2
+  flutter_riverpod: ^2.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/questions/en/
+    - assets/questions/ar/
+    - assets/excerpts/
