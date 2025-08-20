@@ -16,6 +16,7 @@ class _PracticeScreenState extends State<PracticeScreen> {
   @override void initState(){ super.initState(); _load(); }
 
   Future<void> _load() async {
+    _lang = lang;
     setState(()=>_loading=true);
     try {
       final lang = await AppSettings.getLang();
@@ -43,14 +44,14 @@ class _PracticeScreenState extends State<PracticeScreen> {
     if(_loading) return const Center(child:CircularProgressIndicator());
     final q=_qs[_i];
     return Padding(padding: const EdgeInsets.all(16), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children:[
-      Text(q.topic, style: Theme.of(context).textTheme.labelLarge, textDirection: TextDirection.auto),
+      Text(q.topic, style: Theme.of(context).textTheme.labelLarge, textDirection: _lang.dir),
       const SizedBox(height:8),
-      Text(q.text, style: Theme.of(context).textTheme.titleMedium, textDirection: TextDirection.auto),
+      Text(q.text, style: Theme.of(context).textTheme.titleMedium, textDirection: _lang.dir),
       const SizedBox(height:12),
       ...q.choices.map((c)=>Card(child: ListTile(title: Text('${c.id}. ${c.text}', textDirection: TextDirection.auto), onTap: ()=>_answer(c.isCorrect)))),
       const Spacer(),
-      Text('Ref: ${q.ref}', style: Theme.of(context).textTheme.bodySmall, textDirection: TextDirection.auto),
-      if(q.explanation!=null)...[const SizedBox(height:8), Text('Note: ${q.explanation!}', style: Theme.of(context).textTheme.bodySmall, textDirection: TextDirection.auto)],
+      Text('Ref: ${q.ref}', style: Theme.of(context).textTheme.bodySmall, textDirection: textDirection: _lang.dir),
+      if(q.explanation!=null)...[const SizedBox(height:8), Text('Note: ${q.explanation!}', style: Theme.of(context).textTheme.bodySmall,textDirection: _lang.dir)],
     ]));
   }
 }
