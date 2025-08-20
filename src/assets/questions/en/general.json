@@ -1,0 +1,15 @@
+[
+  {
+    "id": "g1",
+    "text": "Which authority typically governs electrical utility connection approvals in Dubai?",
+    "choices": [
+      {"id":"A","text":"RTA","isCorrect":false},
+      {"id":"B","text":"DEWA","isCorrect":true},
+      {"id":"C","text":"Dubai Police","isCorrect":false},
+      {"id":"D","text":"Dubai Municipality (DM) Roads","isCorrect":false}
+    ],
+    "topic": "General — Authorities",
+    "ref": "Practice",
+    "explanation": "DEWA handles electricity and water approvals."
+  }
+]
