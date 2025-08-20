@@ -1,0 +1,1 @@
+Select conductors by ampacity with derating for temperature/grouping, control voltage drop, ensure protective device interrupting capacity, provide residual current protection as required for sockets and wet locations.
